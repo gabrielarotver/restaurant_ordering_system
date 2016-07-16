@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'signup', to: 'customers#new', as: 'signup'

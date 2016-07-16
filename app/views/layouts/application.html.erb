@@ -11,6 +11,8 @@
   <body>
 
     <div class="customer_header">
+      <%= link_to 'Home', root_path %> |
+      <%= link_to 'Orders', orders_path %> |
       <% if current_customer%>
         Logged in as <%= current_customer.email%>.
         <%= link_to "Log Out", logout_path%>
