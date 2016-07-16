@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RestaurantApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="customer_header">
+      <% if current_customer%>
+        Logged in as <%= current_customer.email%>.
+        <%= link_to "Log Out", logout_path%>
+      <%else%>
+        <%= link_to "Sign Up", signup_path%> or
+        <%= link_to "Log In", login_path%>
+      <% end %>
+    </div>
+
+    <% flash.each do |key, value|%>
+      <%= content_tag(:div, class: "alert alert-#{key}") do %>
+        <p><%= value %></p>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
