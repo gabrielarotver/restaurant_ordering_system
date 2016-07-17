@@ -15,7 +15,12 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    @order.total = 0 #added
+    @order.customer_id = session[:customer_id]
+    @order_rows = []
+    Item.all.each do |item|
+      @order_rows << OrderRow.create(order: @order, item: item, quantity: 0)
+    end
+    @order.order_rows = @order_rows
   end
 
   # GET /orders/1/edit

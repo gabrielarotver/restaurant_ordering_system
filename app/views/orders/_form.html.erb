@@ -11,6 +11,35 @@
     </div>
   <% end %>
 
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <% @order.order_rows.each do |row|%>
+      <tr>
+        <td> <%= row.item.name%> </td>
+        <td> <%= row.item.description%> </td>
+        <td> <%= row.item.price%> </td>
+        <td>
+         <div class="field">
+           <%= text_field_tag "quantity", 0  %>
+         </div>
+       </td>
+
+      </tr>
+    <% end %>
+
+  </table>
+
+
+
+
+
+
+
   <div class="field">
     <%= f.label :total %>
     <%= f.text_field :total %>

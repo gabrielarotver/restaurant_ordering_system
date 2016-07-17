@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :order_rows
   resources :items
   resources :orders
   resources :sessions, only: [:new, :create, :destroy]
