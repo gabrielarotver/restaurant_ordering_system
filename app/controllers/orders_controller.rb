@@ -18,7 +18,12 @@ class OrdersController < ApplicationController
     @order.customer_id = session[:customer_id]
     @order_rows = []
     Item.all.each do |item|
-      @order_rows << OrderRow.create(order: @order, item: item, quantity: 0)
+      # @order_rows << OrderRow.create(order: @order, item: item, quantity: 0)
+      row = OrderRow.new
+      row.item = item
+      row.quantity = 0
+      row.save
+      @order_rows << row
     end
     @order.order_rows = @order_rows
   end
@@ -30,8 +35,11 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    abo
+    p params
     @order = current_customer.orders.build()
     @order.total = 0 #added
+
 
     respond_to do |format|
       if @order.save

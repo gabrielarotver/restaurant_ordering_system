@@ -18,6 +18,7 @@
       <th>Price</th>
       <th>Quantity</th>
     </tr>
+    <%=p @order.order_rows%>
     <% @order.order_rows.each do |row|%>
       <tr>
         <td> <%= row.item.name%> </td>
