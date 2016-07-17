@@ -18,7 +18,6 @@
       <th>Price</th>
       <th>Quantity</th>
     </tr>
-    <%=p @order.order_rows%>
     <% @order.order_rows.each do |row|%>
       <tr>
         <td> <%= row.item.name%> </td>
@@ -26,7 +25,7 @@
         <td> <%= row.item.price%> </td>
         <td>
          <div class="field">
-           <%= text_field_tag "quantity", 0  %>
+           <%= number_field_tag "quantity[]", 0  %>
          </div>
        </td>
 
@@ -34,12 +33,6 @@
     <% end %>
 
   </table>
-
-
-
-
-
-
 
   <div class="field">
     <%= f.label :total %>

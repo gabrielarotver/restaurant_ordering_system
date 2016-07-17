@@ -35,10 +35,28 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    abo
-    p params
+    puts "\n\n#{params[:quantity]}\n\n"
+
     @order = current_customer.orders.build()
-    @order.total = 0 #added
+    @order.order_rows = []
+    counter = 1
+
+    @order.total = 0 #need to update
+
+    #only create order rows for items with quantity > 0
+    params[:quantity].each do |quantity|
+      if quantity.to_i > 0
+        @order.order_rows << OrderRow.create(order: @order, item: Item.find(counter), quantity: quantity)
+        @order.total += (quantity.to_i * Item.find(counter).price)
+        puts "\n\n#{Item.find(counter).name}\n\n"
+      end
+      counter += 1
+    end
+
+    puts "\n\nCOUNT #{@order.order_rows.count}\n\n"
+    puts "\n\nTOTAL #{@order.total}\n\n"
+
+
 
 
     respond_to do |format|

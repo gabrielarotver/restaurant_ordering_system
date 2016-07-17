@@ -1,3 +1,20 @@
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  <% @order.order_rows.each do |row|%>
+    <tr>
+      <td> <%= row.item.name%> </td>
+      <td> <%= row.item.description%> </td>
+      <td> <%= row.item.price%> </td>
+      <td> <%= row.quantity%> </td>
+    </tr>
+  <% end %>
+</table>
 <p>
   <strong>Total:</strong>
   <%= @order.total %>
