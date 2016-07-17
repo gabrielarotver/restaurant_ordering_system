@@ -12,7 +12,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.total %></td>
+        <td>$<%= Money.new(order.total, "USD")%></td>
         <td><%= order.customer %></td>
         <td><%= link_to 'Show', order %></td>
         <td> <% if current_customer && order.customer == current_customer %><%= link_to 'Edit', edit_order_path(order)%><% end %></td>

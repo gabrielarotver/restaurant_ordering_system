@@ -10,6 +10,71 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
+
+ /*Do this for every css!!!*/
+ * {
+   box-sizing: border-box;
+ }
+
+ li {
+   /*get rid of bullet points*/
+   list-style-type: none;
+ }
+
+ a {
+   text-decoration: none;
+ }
+
+ body {
+   margin: 0;
+ }
+
+ /*----------------------------------------*/
+ /*-----------------HEADER-----------------*/
+ /*----------------------------------------*/
+
+ /*Don't change the link to purple when visited*/
+ a, a:visited {
+   color: gray;
+ }
+
+ a:hover {
+   color: lightgray;
+ }
+
+ img {
+   margin: 0;
+   height: 7rem;
+   width: auto;
+ }
+
+ /*get rid of nav margin*/
+ .my-list {
+   margin: 0;
+   padding: 0;
+   /*Flexbox default direction is horizontal. The list container is a flexbox, and now everything inside my list became flex items. This can also be done by changing the li display.*/
+   display: flex;
+   justify-content: flex-end;
+   font-family: 'Raleway', sans-serif;
+   font-size: 2rem;
+   margin-right: 2rem;
+ }
+
+ #main_nav {
+
+ }
+ .my-list li:first-child {
+   justify-self: flex-start;
+   margin-right: auto;
+   margin-left: 0;
+   padding: 0;
+ }
+ .my-list li {
+   padding: 0.5em 0 0.5em 1em;
+   padding-top: 2rem;
+   margin-left: 2rem;
+ }

@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
     @order.customer_id = session[:customer_id]
     @order_rows = []
     Item.all.each do |item|
-      # @order_rows << OrderRow.create(order: @order, item: item, quantity: 0)
       row = OrderRow.new
       row.item = item
       row.quantity = 0
@@ -45,17 +44,10 @@ class OrdersController < ApplicationController
     #only create order rows for items with quantity > 0
     params[:quantity].each_with_index do |quantity, counter|
       if quantity.to_i > 0
-        @order.order_rows << OrderRow.create(order: @order, item: Item.find(counter), quantity: quantity)
-        @order.total += (quantity.to_i * Item.find(counter).price)
-        puts "\n\n#{Item.find(counter).name}\n\n"
+        @order.order_rows << OrderRow.create(order: @order, item: Item.find(counter+1), quantity: quantity)
+        @order.total += (quantity.to_i * Item.find(counter+1).price)
       end
     end
-
-    puts "\n\nCOUNT #{@order.order_rows.count}\n\n"
-    puts "\n\nTOTAL #{@order.total}\n\n"
-
-
-
 
     respond_to do |format|
       if @order.save

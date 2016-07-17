@@ -10,14 +10,14 @@
     <tr>
       <td> <%= row.item.name%> </td>
       <td> <%= row.item.description%> </td>
-      <td> <%= row.item.price%> </td>
+      <td> $<%= Money.new(row.item.price, "USD")%> </td>
       <td> <%= row.quantity%> </td>
     </tr>
   <% end %>
 </table>
 <p>
   <strong>Total:</strong>
-  <%= number_to_currency(@order.total/100)%>
+  <%= Money.new(@order.total, "USD")%>
 </p>
 
 <p>
