@@ -17,7 +17,7 @@
 </table>
 <p>
   <strong>Total:</strong>
-  <%= @order.total %>
+  <%= number_to_currency(@order.total/100)%>
 </p>
 
 <p>

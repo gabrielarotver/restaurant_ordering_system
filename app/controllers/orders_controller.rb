@@ -39,18 +39,16 @@ class OrdersController < ApplicationController
 
     @order = current_customer.orders.build()
     @order.order_rows = []
-    counter = 1
 
     @order.total = 0 #need to update
 
     #only create order rows for items with quantity > 0
-    params[:quantity].each do |quantity|
+    params[:quantity].each_with_index do |quantity, counter|
       if quantity.to_i > 0
         @order.order_rows << OrderRow.create(order: @order, item: Item.find(counter), quantity: quantity)
         @order.total += (quantity.to_i * Item.find(counter).price)
         puts "\n\n#{Item.find(counter).name}\n\n"
       end
-      counter += 1
     end
 
     puts "\n\nCOUNT #{@order.order_rows.count}\n\n"
