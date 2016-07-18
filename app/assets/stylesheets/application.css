@@ -31,6 +31,8 @@
 
  body {
    margin: 0;
+   background-image: url("/assets/bg1.jpg");
+   background-size: 100% auto;
  }
 
  /*----------------------------------------*/
@@ -42,11 +44,8 @@
    color: gray;
  }
 
- a:hover {
-   color: lightgray;
- }
-
- img {
+ img#logo {
+   border: .1rem solid gray;
    margin: 0;
    height: 7rem;
    width: auto;
@@ -64,8 +63,8 @@
    margin-right: 2rem;
  }
 
- #main_nav {
-
+ header {
+   /*background-color: rgba(255, 230, 113, .5)*/
  }
  .my-list li:first-child {
    justify-self: flex-start;

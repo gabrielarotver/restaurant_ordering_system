@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <link href="https://fonts.googleapis.com/css?family=Niconne" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,12 +15,12 @@
     <header>
       <nav id="main_nav">
         <ul class="my-list">
-          <li><img src="assets/logo.jpg" alt="restaurant logo" /></li>
+          <li><img id="logo" src="assets/logo.jpg" alt="restaurant logo" /></li>
           <li><%= link_to 'Home', root_path %></li>
           <li><%= link_to 'Orders', orders_path %></li>
           <li><%= link_to 'Menu', items_path %></li>
           <% if current_customer%>
-            <li>Logged in as <%= current_customer.email%>.</li>
+            <li><%= current_customer.email%></li>
             <li><%= link_to "Log Out", logout_path%></li>
           <%else%>
           <li><%= link_to "Sign Up", signup_path%></li>
