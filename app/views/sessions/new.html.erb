@@ -1,15 +1,18 @@
-<h1>Log In</h1>
+<h1 class="title text-center">Log In</h1>
 
-<%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :email%><br>
-    <%= text_field_tag :email%><br>
-  </div>
-  <div class="field">
-    <%= label_tag :password%><br>
-    <%= password_field_tag :password%><br>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Log In"%><br>
-  </div>
-<%end%>
+<div class="center">
+  <%= form_tag sessions_path do %>
+    <div class="field form-group">
+      <%= label_tag :email%><br>
+      <%= text_field_tag :email%><br>
+    </div>
+    <div class="field form-group">
+      <%= label_tag :password%><br>
+      <%= password_field_tag :password%><br>
+    </div>
+
+    <div class="actions center form-group">
+      <%= submit_tag "Log In", :class => "btn btn-default .btn-sm"%>  
+    </div>
+  <%end%>
+</div>

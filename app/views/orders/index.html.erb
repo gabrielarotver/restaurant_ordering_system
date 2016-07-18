@@ -1,28 +1,37 @@
-<h1>Orders</h1>
+<h1 class="title text-center">Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Total</th>
-      <th>Customer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
+<%if @orders.count > 0%>
+  <table class="table table-sm table-responsiv">
+    <thead>
       <tr>
-        <td>$<%= Money.new(order.total, "USD")%></td>
-        <td><%= order.customer %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td> <% if current_customer && order.customer == current_customer %><%= link_to 'Edit', edit_order_path(order)%><% end %></td>
-        <td><% if current_customer && order.customer == current_customer %><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %><% end %> </td>
+        <th>Total</th>
+        <th>Customer</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>$<%= Money.new(order.total, "USD")%></td>
+          <td><%= order.customer %></td>
+          <td><%= link_to 'Show', order %></td>
+          <td> <% if current_customer && order.customer == current_customer %><%= link_to 'Edit', edit_order_path(order)%><% end %></td>
+          <td><% if current_customer && order.customer == current_customer %><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %><% end %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%else%>
+  <img class="empty img-thumbnail img-responsive" src="/assets/empty_cart.gif" alt="Empty Cart"/>
+  <h3 class="title text-center">You haven't placed any orders yet!<small><br>Taste a piece of heaven now and place a new order!</small></h3>
+
+<% end %>
 <br>
 
 <!-- if current user show link below -->
-<%= link_to 'New Order', new_order_path %>
+<div class="center">
+  <div class="btn btn-default btn-lg ">
+    <%= link_to 'New Order', new_order_path %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-
+<h1 class="title text-center">Your Order is Complete! <small><br>Here are the details:</small></h1>
 <table>
   <tr>
     <th>Name</th>
@@ -24,6 +24,9 @@
   <strong>Customer:</strong>
   <%= @order.customer %>
 </p>
+
+<h2 class="title text-center">We're preparing you order! It'll be ready for pick-up soon!</h2>
+
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

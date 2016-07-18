@@ -45,9 +45,10 @@ class OrdersController < ApplicationController
     params[:quantity].each_with_index do |quantity, counter|
       if quantity.to_i > 0
         @order.order_rows << OrderRow.create(order: @order, item: Item.find(counter+1), quantity: quantity)
-        @order.total += (quantity.to_i * Item.find(counter+1).price)
       end
     end
+
+    @order.total = @order.total_cost
 
     respond_to do |format|
       if @order.save
