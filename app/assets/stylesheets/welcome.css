@@ -1,8 +1,9 @@
 
 .title {
   font-family: 'Niconne', cursive;
-  font-size: 5rem;
+  font-size: 6rem;
   color: black;
+  margin-bottom: 2rem;
 }
 
 .slide {
@@ -14,7 +15,7 @@
    position: relative;
    max-width: 495px;
    height: 370px;
-   margin: 5em auto .5em auto;
+   margin: 2em auto .5em auto;
 }
 .css-slideshow figure{
    margin: 0;
@@ -32,12 +33,12 @@
    background: rgba(0,0,0, .9);
    border-radius: 1em;
    color: white;
-   font-size: 2em;
+   font-size: 1.5em;
    /*padding: 8px 12px;*/
    opacity: 1;
    transition: opacity .5s;
    padding: 2rem;
-   line-height: 2.5rem;
+   line-height: 2rem;
 }
 
 .css-slideshow2 {
