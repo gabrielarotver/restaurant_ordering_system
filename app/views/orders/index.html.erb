@@ -26,7 +26,10 @@
   </table>
 
 <%else%>
-  <img class="empty img-thumbnail img-responsive" src="/assets/empty_cart.gif" alt="Empty Cart"/>
+  <!-- <img class="empty img-thumbnail img-responsive" src="/assets/empty_cart.gif" alt="Empty Cart"/> -->
+
+  <%= image_tag("empty_cart.gif", class: "empty img-thumbnail img-responsive") %>
+
   <h3 class="title text-center">You haven't placed any orders yet!<small><br>Taste a piece of heaven now and place a new order!</small></h3>
 
 <% end %>
