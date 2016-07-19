@@ -35,6 +35,8 @@
    -moz-background-size: cover;
    -o-background-size: cover;
    background-size: cover;
+   margin-top: 0;
+   margin-left: 0;
  }
 
  small {
