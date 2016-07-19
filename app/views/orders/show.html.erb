@@ -1,32 +1,39 @@
 <h1 class="title text-center">Your Order is Complete! <small><br>Here are the details:</small></h1>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Quantity</th>
-  </tr>
-  <% @order.order_rows.each do |row|%>
+<table class="table table-bordered table-responsive table-condensed">
+  <thead>
     <tr>
-      <td> <%= row.item.name%> </td>
-      <td> <%= row.item.description%> </td>
-      <td> $<%= Money.new(row.item.price, "USD")%> </td>
-      <td> <%= row.quantity%> </td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
     </tr>
-  <% end %>
+  </thead>
+
+  <tbody>
+    <% @order.order_rows.each do |row|%>
+      <tr>
+        <td> <%= row.item.name%> </td>
+        <td> <%= row.item.description%> </td>
+        <td> $<%= Money.new(row.item.price, "USD")%> </td>
+        <td> <%= row.quantity%> </td>
+      </tr>
+    <% end %>
+  </tbody>
+
 </table>
-<p>
-  <strong>Total:</strong>
+
+<p class="center">
+  <strong>TOTAL:</strong>
   <%= Money.new(@order.total, "USD")%>
 </p>
 
-<p>
-  <strong>Customer:</strong>
+<p class="center">
+  <strong>CUSTOMER:</strong>
   <%= @order.customer %>
 </p>
 
-<h2 class="title text-center">We're preparing you order! It'll be ready for pick-up soon!</h2>
+<h3 id="small" class="title text-center">We're preparing you order!<br>It'll be ready for pick-up soon!</h3>
 
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="center bottom">
+  <%= link_to 'Back To All Orders', orders_path %>
+</div>

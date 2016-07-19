@@ -1,6 +1,3 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 .title {
   font-family: 'Niconne', cursive;
@@ -23,19 +20,16 @@
    position: absolute;
 }
 .css-slideshow figcaption{
-  //  position: absolute;
+  /*position: absolute;*/
    top: 0;
    color: #fff;
    background: rgba(0,0,0, .3);
-   font-size: .8em;
+   font-size: 1em;
    padding: 8px 12px;
    opacity: 1;
    transition: opacity .5s;
 }
-// .css-slideshow:hover figure figcaption{
-//    transition: opacity .5s;
-//    opacity: 1;
-// }
+
 .css-slideshow figure{
    opacity:0;
 }
